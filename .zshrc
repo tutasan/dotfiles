@@ -1,7 +1,6 @@
 # Path to your oh-my-zsh installation.
 export "ZSH=$HOME/.oh-my-zsh"
 
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -113,17 +112,22 @@ alias 'gcm'='git commit --verbos'
 
 # === PATH ===
 
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/bin:$PATH"
-export PATH="/bin:$PATH"
-export PATH="/usr/sbin:$PATH"
-export PATH="/sbin:$PATH"
-export PATH="/opt/ImageMagick/bin:$PATH"
-export PATH="$HOME/.rbenv/shims:$PATH"
-export PATH="/usr/local/share/npm/bin:$PATH"
-export PATH="/usr/local/go/bin:$PATH"
-export PATH="/usr/local/Cellar/git/2.24.1/bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.5/bin:$PATH"
+#PATH="/bin:$PATH"
+#PATH="/sbin:$PATH"
+#PATH="/usr/bin:$PATH"
+#PATH="/usr/sbin:$PATH"
+#PATH="/usr/local/bin:$PATH"
+#PATH="/opt/ImageMagick/bin:$PATH"
+PATH="$HOME/.rbenv/bin:$PATH"
+PATH="$HOME/.rbenv/shims:$PATH"
+PATH="/usr/local/share/npm/bin:$PATH"
+PATH="/usr/local/go/bin:$PATH"
+PATH="/usr/local/Cellar/git/2.24.1/bin:$PATH"
+PATH="/usr/local/opt/mysql@5.5/bin:$PATH"
+
+export PATH
+
+typeset -U path PATH
 
 # Java
 export JAVA_HOME=`/usr/libexec/java_home`
@@ -192,8 +196,10 @@ fi
 
 # === cool-peco init ===
 
-FPATH="$FPATH:$HOME/.peco/cool-peco"
+export FPATH="$FPATH:$HOME/.peco/cool-peco"
 autoload -Uz cool-peco
+cool-peco
+
 bindkey "^r" 'cool-peco-history'
 bindkey "^f" 'cool-peco-filename-search'
 bindkey '^h' 'cool-peco-ssh'
